@@ -1,0 +1,19 @@
+-Config sendmail.ini:
+
+smtp_port=465
+smtp_server=smtp.gmail.com
+smtp_ssl=auto
+error_logfile=error.log
+auth_username=*seu endereço de email*
+auth_password=*sua senha de email*
+
+
+-config php.ini:
+
+sendmail_path="*Inserir path do executável de sendmail do xamp* -t"
+SMTP=localhost
+smtp_port=465
+sendmail_from = '*seuemail@email*.com'
+
+
+Obs: O arquivo faz uma tentative de envoi, mas resulta em falso, necessário ver depois se o problema está na função ou se é problema do Gmail
