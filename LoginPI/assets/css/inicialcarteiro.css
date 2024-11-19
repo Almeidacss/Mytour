@@ -16,7 +16,7 @@ body{
     justify-content: center;
     align-items: left;
     min-height: 100vh;
-    background: black;
+    background: #ffffff;
 }
 
 
@@ -24,15 +24,14 @@ body{
 .navegação{
     position:relative;
     height: 500px;
-    background: #5807db;
+    background: #ffffff;
     width: 70px;
-    box-shadow: 10px 0 0 white; 
-    border-left: 10px solid black;
+    box-shadow: 10px 0 0 #1E90FF; 
+    border-left: 10px solid #ffffff;
     overflow-x: hidden;
     transition: 0.5s;
     display: flex;
     margin-left:0vw;
-    color: #AC93C2;
 }
 .navegação:hover{
     width: 300px;
@@ -45,7 +44,6 @@ body{
     width: 100%;
     padding-left: 5px;
     padding-top: 40px;
-    color: #AC93C2;
 }
 .navegação ul li{
     position: relative;
@@ -53,14 +51,13 @@ body{
     width: 100%;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    color: #AC93C2;
 }
 .navegação ul li a{
     position: relative;
     display: flex;
     width: 100%;
     text-decoration: none;
-    color: #AC93C2;
+    color: #050000;
 }
 .navegação ul li a .icon{
     position: relative;
@@ -77,11 +74,9 @@ padding-left: 10px;
 height: 60px;
 line-height: 60px;
 white-space: nowrap;
-color: white;
 }
 .navegação ul li.active{
-    background: #5807db;
-    color: white;
+    background: #ffffff;
 
 }
 .navegação ul li.active a::before{
@@ -91,10 +86,9 @@ color: white;
     right: 0;
     width: 30px;
     height: 30px;
-    background: #5807db;
+    background: #ffffff;
     border-radius: 50%;
-    box-shadow: 15px -15px 0 #5807db;
-    color: white;
+    box-shadow: 15px -15px 0 #ffffff;
 }
 .navegação ul li .icon img{
     position: relative;
@@ -108,22 +102,19 @@ color: white;
     right: 0;
     width: 30px;
     height: 30px;
-    background: #5807db;
+    background: #ffffff;
     border-radius: 50%;
-    box-shadow: 15px -15px 0 #5807db;
-    color: white;
+    box-shadow: 15px -15px 0 #f9f9fa;
 }
 .navegação ul li :hover{
-    background-color: #AC93C2;
+    background-color: #1E90FF;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    color: white;
 }
 .navigation ul li :focus{
-    background-color: #AC93C2;
+    background-color: #1E90FF;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    color: white;
 }
 
 
@@ -131,25 +122,21 @@ color: white;
 
 
 #area-cabeçalho{
-    background-color: #ff0040;
+    background-color: #1E90FF;
     padding: 15px;
     text-align: center;
-    color: #fff;
 }
 
 .container{
     max-width: 1280px;
     margin: auto;
-    color: #fff;
-    background-color: #6131AD;
 }
 .flex{
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    background: black;
-    
+    background-color: #ffffff;
 }
 
 
@@ -162,7 +149,7 @@ header{
 }
 header i{
     font-size: 30px;
-    color: black;
+    color: #f7f7f8;
 }
 header ul{
     list-style: none;
@@ -176,9 +163,9 @@ header ul{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    color: #fff;
-    background: black;
-    box-shadow: black;
+    color: #000000;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.7);
     border-radius: 3px;
     letter-spacing: 3px;
 }
@@ -187,9 +174,9 @@ header ul{
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    color: #fff;
-    background: black;
-    box-shadow: black;
+    color: #010002;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.7);
     border-radius: 7px;
     letter-spacing: 3px;
 }
@@ -207,14 +194,13 @@ header ul{
     gap: 5px;
  }
  .tabela{
-    background-color: black;
+    background-color: #ffffff;
     margin-right: 10px;
     height: 170%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     padding-top: 30px;
-    color: #fff;
  }
  .imageminicial {
     padding-top: 20px;
@@ -224,7 +210,6 @@ header ul{
  main.cards {
     display: flex;
     padding: 32px;
-    color: white;
 }
 
 main.cards section.card {
@@ -232,7 +217,7 @@ main.cards section.card {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background: black;
+    background: white;
     padding: 100px;
     border-radius: 8px;
     max-height: 468px;

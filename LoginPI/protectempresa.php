@@ -8,9 +8,7 @@ if (!isset($_SESSION)) {
 }
 
 // Verifica se o usuário está logado com base na sessão
-if (!isset($_SESSION['id'])) {
-    die("Você não pode acessar esta página porque não está logado.<p><a href=\"indexempresa.php\">Entrar</a></p>");
-}
+
 
 // Aqui você pode adicionar o código da página que deve ser acessível apenas por usuários logados
 ?>

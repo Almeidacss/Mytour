@@ -1,7 +1,7 @@
 <?php
 
-$usuario = 'root';
-$senha = '';
+$usuario = 'Deivid';
+$senha = 'a99029860A';
 $database = 'loginPI';
 $host = 'localhost';
 

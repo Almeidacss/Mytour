@@ -1,6 +1,8 @@
 <?php
 
-include('conexao.php');
+include('protectempresa.php');
+$sql = "SELECT * FROM entregas ORDER BY id DESC";
+$result = $mysqli->query($sql);
 
 ?>
 <!DOCTYPE html>
@@ -9,8 +11,8 @@ include('conexao.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mytour - Home</title>
-    <link rel="stylesheet" href="assets/css/inicial.css">
+    <title>Mytour - Pedidos</title>
+    <link rel="stylesheet" href="assets/css/inicialempresa.css">
     <script src="script.js"></script>
 </head>
 <body>
@@ -22,7 +24,7 @@ include('conexao.php');
 
             <nav>
                 <ul>
-                <h3>Envie suas mensagens pelo cosmos: o correio que liga você ao infinito</h3>
+                <h3>Gerencie suas entregas com eficiência e agilidade — Conectando sua empresa ao futuro da logística!</h3>
 </ul>
 </nav>
             <div class="clock">
@@ -54,63 +56,168 @@ include('conexao.php');
             <li class="list active">
                 <a href="PIempresa.php">
                     <span class="icon"><img src="assets/imgs/home.png" alt=""></span>
-                    <span class="title">Principal</span>
+                    <span class="title">Pedidos</span>
+        </a>
+        </li>
+        <li class="list">
+                <a href="carteiros.php">
+                    <span class="icon"><img src="assets/imgs/pacote.png" alt=""></span>
+                    <span class="title">Meus entregadores</span>
+        </a>
+        </li>
+        <li class="list">
+                <a href="rastreamento.php">
+                    <span class="icon"><img src="assets/imgs/avião.png" alt=""></span>
+                    <span class="title">Meus dados</span>
+        </a>
+        </li>
+        <li class="list">
+                <a href="logout.php">
+                    <span class="icon"><img src="assets/imgs/logout.png" alt=""></span>
+                    <span class="title">Desconetar</span>
         </a>
         </li>
         
 </div>
-<div class="tabela">
-        <div class="conteudoinicial">
-<h1> ➟ Mytour - Bem Vindo <?php echo $_SESSION['nome']; ?> </h1> 
-<h3>𝘓𝘰𝘳𝘦𝘮 𝘐𝘱𝘴𝘶𝘮 𝘪𝘴 𝘴𝘪𝘮𝘱𝘭𝘺 𝘥𝘶𝘮𝘮𝘺 𝘵𝘦𝘹𝘵 𝘰𝘧 𝘵𝘩𝘦 𝘱𝘳𝘪𝘯𝘵𝘪𝘯𝘨 𝘢𝘯𝘥 𝘵𝘺𝘱𝘦𝘴𝘦𝘵𝘵𝘪𝘯𝘨 𝘪𝘯𝘥𝘶𝘴𝘵𝘳𝘺. 𝘓𝘰𝘳𝘦𝘮 𝘐𝘱𝘴𝘶𝘮 𝘩𝘢𝘴 𝘣𝘦𝘦𝘯 𝘵𝘩𝘦 𝘪𝘯𝘥𝘶𝘴𝘵𝘳𝘺'𝘴 𝘴𝘵𝘢𝘯𝘥𝘢𝘳𝘥 𝘥𝘶𝘮𝘮𝘺 𝘵𝘦𝘹𝘵 𝘦𝘷𝘦𝘳 𝘴𝘪𝘯𝘤𝘦 𝘵𝘩𝘦 1500𝘴, 𝘸𝘩𝘦𝘯 𝘢𝘯 𝘶𝘯𝘬𝘯𝘰𝘸𝘯 𝘱𝘳𝘪𝘯𝘵𝘦𝘳 𝘵𝘰𝘰𝘬 𝘢 𝘨𝘢𝘭𝘭𝘦𝘺 𝘰𝘧 𝘵𝘺𝘱𝘦 𝘢𝘯𝘥 𝘴𝘤𝘳𝘢𝘮𝘣𝘭𝘦𝘥 𝘪𝘵 𝘵𝘰 𝘮𝘢𝘬𝘦 𝘢 𝘵𝘺𝘱𝘦 𝘴𝘱𝘦𝘤𝘪𝘮𝘦𝘯 𝘣𝘰𝘰𝘬. 𝘐𝘵 𝘩𝘢𝘴 𝘴𝘶𝘳𝘷𝘪𝘷𝘦𝘥 𝘯𝘰𝘵 𝘰𝘯𝘭𝘺 𝘧𝘪𝘷𝘦 𝘤𝘦𝘯𝘵𝘶𝘳𝘪𝘦𝘴, 𝘣𝘶𝘵 𝘢𝘭𝘴𝘰 𝘵𝘩𝘦 𝘭𝘦𝘢𝘱 𝘪𝘯𝘵𝘰 𝘦𝘭𝘦𝘤𝘵𝘳𝘰𝘯𝘪𝘤 𝘵𝘺𝘱𝘦𝘴𝘦𝘵𝘵𝘪𝘯𝘨, 𝘳𝘦𝘮𝘢𝘪𝘯𝘪𝘯𝘨 𝘦𝘴𝘴𝘦𝘯𝘵𝘪𝘢𝘭𝘭𝘺 𝘶𝘯𝘤𝘩𝘢𝘯𝘨𝘦𝘥. 𝘐𝘵 𝘸𝘢𝘴 𝘱𝘰𝘱𝘶𝘭𝘢𝘳𝘪𝘴𝘦𝘥 𝘪𝘯 𝘵𝘩𝘦 1960𝘴 𝘸𝘪𝘵𝘩 𝘵𝘩𝘦 𝘳𝘦𝘭𝘦𝘢𝘴𝘦 𝘰𝘧 𝘓𝘦𝘵𝘳𝘢𝘴𝘦𝘵 𝘴𝘩𝘦𝘦𝘵𝘴 𝘤𝘰𝘯𝘵𝘢𝘪𝘯𝘪𝘯𝘨 𝘓𝘰𝘳𝘦𝘮 𝘐𝘱𝘴𝘶𝘮 𝘱𝘢𝘴𝘴𝘢𝘨𝘦𝘴, 𝘢𝘯𝘥 𝘮𝘰𝘳𝘦 𝘳𝘦𝘤𝘦𝘯𝘵𝘭𝘺 𝘸𝘪𝘵𝘩 𝘥𝘦𝘴𝘬𝘵𝘰𝘱 𝘱𝘶𝘣𝘭𝘪𝘴𝘩𝘪𝘯𝘨 𝘴𝘰𝘧𝘵𝘸𝘢𝘳𝘦 𝘭𝘪𝘬𝘦 𝘈𝘭𝘥𝘶𝘴 𝘗𝘢𝘨𝘦𝘔𝘢𝘬𝘦𝘳 𝘪𝘯𝘤𝘭𝘶𝘥𝘪𝘯𝘨 𝘷𝘦𝘳𝘴𝘪𝘰𝘯𝘴 𝘰𝘧 𝘓𝘰𝘳𝘦𝘮 𝘐𝘱𝘴𝘶𝘮.</h3>
-<img src="mascote.png" alt="">        
-</div>
-        <div class="imageminicial">
-            <img src="assets/imgs/.jpg" alt="">
-        </div>
+<div class="lista">
+    <style>
+        .lista {
+            background: linear-gradient(to right, white, white);
+            border-radius: 15px 15px 0 0;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .table-container {
+            margin: 20px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff; /* Fundo da tabela agora é branco */
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 0.9em;
+            color: #000000; /* Texto agora é preto */
+        }
+
+        table thead {
+            background-color: #ff0040; /* Cabeçalho da tabela com fundo preto */
+            color: #ffffff; /* Texto do cabeçalho em branco */
+        }
+
+        table th, table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #000000; /* Bordas das células em preto */
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f2f2f2; /* Linhas pares com fundo cinza claro */
+        }
+
+        table tbody tr:hover {
+            background-color: #e0e0e0; /* Efeito hover com fundo cinza mais claro */
+        }
+
+        .btn {
+            display: inline-block; /* Coloca os botões lado a lado */
+            padding: 5px 10px;
+            margin: 2px;
+            text-decoration: none;
+            color: #ffffff;
+            border-radius: 5px;
+            font-size: 0.8em;
+        }
+
+        .btn-primary {
+            background-color: white; /* Cor do botão de edição */
+        }
+
+        .btn-danger {
+            background-color: black; /* Cor do botão de exclusão */
+        }
+        .button-with-image {
+            background: none; /* Remove a cor de fundo */
+            border: none; /* Remove a borda do botão */
+            padding: 0; /* Remove o padding */
+            cursor: pointer;
+        }
+        .button-with-image img {
+            width: 20px; /* Tamanho da imagem */
+            height: 20px;
+            vertical-align: middle;
+        }
+        .button-with-image:hover img {
+            opacity: 0.8; /* Efeito visual quando passa o mouse na imagem */
+        }
+
+    </style>
+
+    <div class="table-container">
+        <table class="table-bg">
+            <thead>
+                <tr>
+                <th>
+                    <!-- Link com o botão -->
+                    <a href="encomendas.php"> <!-- Substitua 'pagina_destino.php' pela URL de destino -->
+                        <button class="button-with-image">
+                            <img src="assets/imgs/adicionar.png" alt="Icon"> <!-- Caminho da imagem -->
+                        </button>
+                    </a>
+    </th>
+                    <th>Transportadora</th>
+                    <th>Código</th>
+                    <th>Usuário</th>
+                    <th>Telefone</th>
+                    <th>Lançamento</th>
+                    <th>Rastreamento</th>
+                    <th>Cidade</th>
+                    <th>Estado</th>
+                    <th>Endereço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    while($user_data = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        echo "<td>".$user_data['id']."</td>";
+                        echo "<td>".$user_data['Transportadora']."</td>";
+                        echo "<td>".$user_data['Codigo']."</td>";
+                        echo "<td>".$user_data['Usuário']."</td>";
+                        echo "<td>".$user_data['Telefone']."</td>";
+                        echo "<td>".$user_data['Lancamento']."</td>";
+                        echo "<td>".$user_data['rastreamento']."</td>";
+                        echo "<td>".$user_data['Cidade']."</td>";
+                        echo "<td>".$user_data['Estado']."</td>";
+                        echo "<td>".$user_data['Rua']."</td>";
+                        echo "<td>
+                            <a class='btn btn-sm btn-primary' href='edit.php?id={$user_data['id']}' title='Editar'>
+                                <img src='assets/imgs/lapis.png' alt='Editar' width='16' height='16'>
+                            </a>
+                            <a class='btn btn-sm btn-danger' href='delete.php?id={$user_data['id']}' title='Deletar'>
+                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
+                                    <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z'/>
+                                </svg>
+                            </a>
+                        </td>";
+                        echo "</tr>";
+                    }
+                ?>
+            </tbody>
+        </table>
     </div>
-    <main class="cards">
-        <section class="card contact">
-            <div class="icon">
-                <img src="assets/imgs/card.png" alt="Contact us.">
-            </div>
-            <h3>➛Pedidos</h3>
-            <span>Entre aqui para ver os seus pedidos.</span>
-            <button>Acessar</button>
-        </section>
-        <section class="card shop">
-            <div class="icon">
-                <img src="assets/imgs/card.png" alt="Shop here.">
-            </div>
-            <h3>➛Rastreamento</h3>
-            <span>Entre nessa página para ver por onde anda a sua entrega.</span>
-            <button>Acessar</button>
-        </section>
-        <section class="card about">
-            <div class="icon">
-                <img src="assets/imgs/card.png" alt="About us.">
-            </div>
-            <h3>➛Suporte</h3>
-            <span>Veja esta página caso necessite de ajuda de nossos funcionários.</span>
-            <button>Acessar</button>
-        </section>
-        <section class="card shop">
-            <div class="icon">
-                <img src="assets/imgs/card.png" alt="Shop here.">
-            </div>
-            <h3>➛Configuração</h3>
-            <span>Acesse as configurações para deixar o site mais confortável para você.</span>
-            <button>Acessar</button>
-        </section>
-        <section class="card about">
-            <div class="icon">
-                <img src="assets/imgs/card.png" alt="About us.">
-            </div>
-            <h3>➛Seus Dados</h3>
-            <span>Atualizar seus dados.</span>
-            <button>Acessar</button>
-        </section>
-    </main>
+</div>
+
+
+
+</body>
+</div>
 </div>
 
     

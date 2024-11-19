@@ -1,6 +1,9 @@
 <?php
 
 include('protect.php');
+if(!isset($_SESSION)){
+    session_start();
+}
 
 ?>
 <!DOCTYPE html>
@@ -18,7 +21,7 @@ include('protect.php');
   <header id="header">
     <div class="container">
         <div class="flex">
-            <a href=""><img src="assets/imgs/planeta3.png" alt=""></a>
+            <a href=""><img src="assets/imgs/planetab.png" alt=""></a>
 
             <nav>
                 <ul>
@@ -53,61 +56,101 @@ include('protect.php');
         <ul>
             <li class="list active">
                 <a href="PIInicial.php">
-                    <span class="icon"><img src="assets/imgs/home.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/hme.png" alt=""></span>
                     <span class="title">Principal</span>
         </a>
         </li>
         <li class="list">
                 <a href="pedidos.php">
-                    <span class="icon"><img src="assets/imgs/pacote.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/pacoteb.png" alt=""></span>
                     <span class="title">Meus pedidos</span>
         </a>
         </li>
         <li class="list">
                 <a href="rastreamento.php">
-                    <span class="icon"><img src="assets/imgs/avião.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/aviãobranco1.png" alt=""></span>
                     <span class="title">Rastreamento</span>
         </a>
         </li>
         <li class="list">
                 <a href="suporte.php">
-                    <span class="icon"><img src="assets/imgs/atendimento.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/atendimentob.png" alt=""></span>
                     <span class="title">Suporte</span>
         </a>
         </li>
         <li class="list">
                 <a href="config.php">
-                    <span class="icon"><img src="assets/imgs/configurações.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/engrenagem.png" alt=""></span>
                     <span class="title">Configurações</span>
         </a>
         </li>
         <li class="list">
                 <a href="dados.php">
-                    <span class="icon"><img src="assets/imgs/prancheta.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/pranchetab.png" alt=""></span>
                     <span class="title">Meus Dados</span>
         </a>
         </li>
         <li class="list">
                 <a href="logout.php">
-                    <span class="icon"><img src="assets/imgs/logout.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/logoutb.png" alt=""></span>
                     <span class="title">Desconetar</span>
         </a>
         </li>
 </div>
 <div class="tabela">
         <div class="conteudoinicial">
-<h1> ➟ Mytour - Bem Vindo <?php echo $_SESSION['nome']; ?> </h1> 
-<h3>𝘓𝘰𝘳𝘦𝘮 𝘐𝘱𝘴𝘶𝘮 𝘪𝘴 𝘴𝘪𝘮𝘱𝘭𝘺 𝘥𝘶𝘮𝘮𝘺 𝘵𝘦𝘹𝘵 𝘰𝘧 𝘵𝘩𝘦 𝘱𝘳𝘪𝘯𝘵𝘪𝘯𝘨 𝘢𝘯𝘥 𝘵𝘺𝘱𝘦𝘴𝘦𝘵𝘵𝘪𝘯𝘨 𝘪𝘯𝘥𝘶𝘴𝘵𝘳𝘺. 𝘓𝘰𝘳𝘦𝘮 𝘐𝘱𝘴𝘶𝘮 𝘩𝘢𝘴 𝘣𝘦𝘦𝘯 𝘵𝘩𝘦 𝘪𝘯𝘥𝘶𝘴𝘵𝘳𝘺'𝘴 𝘴𝘵𝘢𝘯𝘥𝘢𝘳𝘥 𝘥𝘶𝘮𝘮𝘺 𝘵𝘦𝘹𝘵 𝘦𝘷𝘦𝘳 𝘴𝘪𝘯𝘤𝘦 𝘵𝘩𝘦 1500𝘴, 𝘸𝘩𝘦𝘯 𝘢𝘯 𝘶𝘯𝘬𝘯𝘰𝘸𝘯 𝘱𝘳𝘪𝘯𝘵𝘦𝘳 𝘵𝘰𝘰𝘬 𝘢 𝘨𝘢𝘭𝘭𝘦𝘺 𝘰𝘧 𝘵𝘺𝘱𝘦 𝘢𝘯𝘥 𝘴𝘤𝘳𝘢𝘮𝘣𝘭𝘦𝘥 𝘪𝘵 𝘵𝘰 𝘮𝘢𝘬𝘦 𝘢 𝘵𝘺𝘱𝘦 𝘴𝘱𝘦𝘤𝘪𝘮𝘦𝘯 𝘣𝘰𝘰𝘬. 𝘐𝘵 𝘩𝘢𝘴 𝘴𝘶𝘳𝘷𝘪𝘷𝘦𝘥 𝘯𝘰𝘵 𝘰𝘯𝘭𝘺 𝘧𝘪𝘷𝘦 𝘤𝘦𝘯𝘵𝘶𝘳𝘪𝘦𝘴, 𝘣𝘶𝘵 𝘢𝘭𝘴𝘰 𝘵𝘩𝘦 𝘭𝘦𝘢𝘱 𝘪𝘯𝘵𝘰 𝘦𝘭𝘦𝘤𝘵𝘳𝘰𝘯𝘪𝘤 𝘵𝘺𝘱𝘦𝘴𝘦𝘵𝘵𝘪𝘯𝘨, 𝘳𝘦𝘮𝘢𝘪𝘯𝘪𝘯𝘨 𝘦𝘴𝘴𝘦𝘯𝘵𝘪𝘢𝘭𝘭𝘺 𝘶𝘯𝘤𝘩𝘢𝘯𝘨𝘦𝘥. 𝘐𝘵 𝘸𝘢𝘴 𝘱𝘰𝘱𝘶𝘭𝘢𝘳𝘪𝘴𝘦𝘥 𝘪𝘯 𝘵𝘩𝘦 1960𝘴 𝘸𝘪𝘵𝘩 𝘵𝘩𝘦 𝘳𝘦𝘭𝘦𝘢𝘴𝘦 𝘰𝘧 𝘓𝘦𝘵𝘳𝘢𝘴𝘦𝘵 𝘴𝘩𝘦𝘦𝘵𝘴 𝘤𝘰𝘯𝘵𝘢𝘪𝘯𝘪𝘯𝘨 𝘓𝘰𝘳𝘦𝘮 𝘐𝘱𝘴𝘶𝘮 𝘱𝘢𝘴𝘴𝘢𝘨𝘦𝘴, 𝘢𝘯𝘥 𝘮𝘰𝘳𝘦 𝘳𝘦𝘤𝘦𝘯𝘵𝘭𝘺 𝘸𝘪𝘵𝘩 𝘥𝘦𝘴𝘬𝘵𝘰𝘱 𝘱𝘶𝘣𝘭𝘪𝘴𝘩𝘪𝘯𝘨 𝘴𝘰𝘧𝘵𝘸𝘢𝘳𝘦 𝘭𝘪𝘬𝘦 𝘈𝘭𝘥𝘶𝘴 𝘗𝘢𝘨𝘦𝘔𝘢𝘬𝘦𝘳 𝘪𝘯𝘤𝘭𝘶𝘥𝘪𝘯𝘨 𝘷𝘦𝘳𝘴𝘪𝘰𝘯𝘴 𝘰𝘧 𝘓𝘰𝘳𝘦𝘮 𝘐𝘱𝘴𝘶𝘮.</h3>
-<img src="mascote.png" alt="">        
+        <h1> ➟ Mytour - Bem Vindo <?php echo $_SESSION['nome']; ?> </h1> 
+        
+<h3>"Bem-vindo ao nosso portal de transporte de encomendas! Aqui, conectamos você à eficiência e segurança no transporte dos seus itens, com uma plataforma criada com dedicação e inovação por um jovem programador. Simplifique suas entregas e acompanhe tudo em um só lugar. Obrigado por confiar no nosso trabalho – juntos, vamos levar suas encomendas mais longe!"</h3>
+<div class="spaced-container">
+    <div class="image-text-wrapper">
+        <img src="assets/imgs/qrcode.png" alt="" class="imagem">
+        <div class="texto">
+            <div>Projeto Integrador - Unifagoc</div>
+            <div>Professor - Paulo Ricardo</div>
+        </div>
+    </div>
+
 </div>
+      <style>
+        .spaced-container {
+    padding-top: 60px; /* Ajuste o valor conforme necessário */
+}
+
+.image-text-wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Duas colunas: imagem e texto */
+    align-items: center; /* Alinha a imagem e o texto verticalmente */
+    gap: 20px; /* Espaçamento entre a imagem e o texto */
+}
+
+.imagem {
+    width: 150px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+.texto {
+    font-size: 18px;
+    color: #fff;
+}
+
+.texto div {
+    margin-bottom: 8px; /* Espaçamento entre as linhas de texto */
+}
+
+}
+
+      </style>
+</div>
+        
         <div class="imageminicial">
-            <img src="assets/imgs/.jpg" alt="">
+            <img src="assets/imgs/header-img.svg" alt="">
         </div>
     </div>
     <main class="cards">
         <section class="card contact">
             <div class="icon">
-                <img src="assets/imgs/card.png" alt="Contact us.">
+                <img src="assets/imgs/terra.png" alt="Contact us.">
             </div>
             <h3>➛Pedidos</h3>
             <span>Entre aqui para ver os seus pedidos.</span>
@@ -115,7 +158,7 @@ include('protect.php');
         </section>
         <section class="card shop">
             <div class="icon">
-                <img src="assets/imgs/card.png" alt="Shop here.">
+                <img src="assets/imgs/sol.png" alt="Shop here.">
             </div>
             <h3>➛Rastreamento</h3>
             <span>Entre nessa página para ver por onde anda a sua entrega.</span>
@@ -123,7 +166,7 @@ include('protect.php');
         </section>
         <section class="card about">
             <div class="icon">
-                <img src="assets/imgs/card.png" alt="About us.">
+                <img src="assets/imgs/lunar.png" alt="About us.">
             </div>
             <h3>➛Suporte</h3>
             <span>Veja esta página caso necessite de ajuda de nossos funcionários.</span>
@@ -131,18 +174,10 @@ include('protect.php');
         </section>
         <section class="card shop">
             <div class="icon">
-                <img src="assets/imgs/card.png" alt="Shop here.">
+                <img src="assets/imgs/cometa.png" alt="Shop here.">
             </div>
             <h3>➛Configuração</h3>
             <span>Acesse as configurações para deixar o site mais confortável para você.</span>
-            <button>Acessar</button>
-        </section>
-        <section class="card about">
-            <div class="icon">
-                <img src="assets/imgs/card.png" alt="About us.">
-            </div>
-            <h3>➛Seus Dados</h3>
-            <span>Atualizar seus dados.</span>
             <button>Acessar</button>
         </section>
     </main>

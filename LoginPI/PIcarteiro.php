@@ -1,6 +1,6 @@
 <?php
 
-include('protect.php');
+include('protectempresa.php');
 $sql = "SELECT * FROM entregas ORDER BY id DESC";
 $result = $mysqli->query($sql);
 
@@ -12,7 +12,7 @@ $result = $mysqli->query($sql);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mytour - Pedidos</title>
-    <link rel="stylesheet" href="assets/css/inicial.css">
+    <link rel="stylesheet" href="assets/css/inicialcarteiro.css">
     <script src="script.js"></script>
 </head>
 <body>
@@ -24,7 +24,7 @@ $result = $mysqli->query($sql);
 
             <nav>
                 <ul>
-                <h3>Envie suas mensagens pelo cosmos: o correio que liga você ao infinito</h3>
+                <h3>Gerencie suas entregas com eficiência e agilidade — Conectando sua empresa ao futuro da logística!</h3>
 </ul>
 </nav>
             <div class="clock">
@@ -50,56 +50,33 @@ $result = $mysqli->query($sql);
 </div>
      <!-- Barra de navegação -->
     
-     <div class="menuzinho">
+<div class="menuzinho">
 <div class="navegação">
         <ul>
             <li class="list active">
-                <a href="PIInicial.php">
-                    <span class="icon"><img src="assets/imgs/hme.png" alt=""></span>
-                    <span class="title">Principal</span>
+                <a href="PIempresa.php">
+                    <span class="icon"><img src="assets/imgs/home.png" alt=""></span>
+                    <span class="title">Pedidos</span>
         </a>
         </li>
         <li class="list">
-                <a href="pedidos.php">
-                    <span class="icon"><img src="assets/imgs/pacoteb.png" alt=""></span>
-                    <span class="title">Meus pedidos</span>
-        </a>
-        </li>
-        <li class="list">
-                <a href="rastreamento.php">
-                    <span class="icon"><img src="assets/imgs/aviãobranco1.png" alt=""></span>
-                    <span class="title">Rastreamento</span>
-        </a>
-        </li>
-        <li class="list">
-                <a href="suporte.php">
-                    <span class="icon"><img src="assets/imgs/atendimentob.png" alt=""></span>
-                    <span class="title">Suporte</span>
-        </a>
-        </li>
-        <li class="list">
-                <a href="config.php">
-                    <span class="icon"><img src="assets/imgs/engrenagem.png" alt=""></span>
-                    <span class="title">Configurações</span>
-        </a>
-        </li>
-        <li class="list">
-                <a href="dados.php">
-                    <span class="icon"><img src="assets/imgs/pranchetab.png" alt=""></span>
+                <a href="carteiros.php">
+                    <span class="icon"><img src="assets/imgs/pacote.png" alt=""></span>
                     <span class="title">Meus Dados</span>
         </a>
         </li>
         <li class="list">
                 <a href="logout.php">
-                    <span class="icon"><img src="assets/imgs/logoutb.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/logout.png" alt=""></span>
                     <span class="title">Desconetar</span>
         </a>
         </li>
+        
 </div>
 <div class="lista">
     <style>
         .lista {
-            background: black;
+            background: linear-gradient(to right, white, white);
             border-radius: 15px 15px 0 0;
             padding: 20px;
             color: white;
@@ -123,7 +100,7 @@ $result = $mysqli->query($sql);
         }
 
         table thead {
-            background-color: #5807db; /* Cabeçalho da tabela com fundo preto */
+            background-color: #1E90FF; /* Cabeçalho da tabela com fundo preto */
             color: #ffffff; /* Texto do cabeçalho em branco */
         }
 
@@ -158,6 +135,21 @@ $result = $mysqli->query($sql);
         .btn-danger {
             background-color: black; /* Cor do botão de exclusão */
         }
+        .button-with-image {
+            background: none; /* Remove a cor de fundo */
+            border: none; /* Remove a borda do botão */
+            padding: 0; /* Remove o padding */
+            cursor: pointer;
+        }
+        .button-with-image img {
+            width: 20px; /* Tamanho da imagem */
+            height: 20px;
+            vertical-align: middle;
+        }
+        .button-with-image:hover img {
+            opacity: 0.8; /* Efeito visual quando passa o mouse na imagem */
+        }
+
     </style>
 
     <div class="table-container">
@@ -165,7 +157,12 @@ $result = $mysqli->query($sql);
             <thead>
                 <tr>
                 <th>
-                            <img src="assets/imgs/pacoteb.png" alt="Icon"> <!-- Caminho da imagem -->
+                    <!-- Link com o botão -->
+                    <a href="encomendas.php"> <!-- Substitua 'pagina_destino.php' pela URL de destino -->
+                        <button class="button-with-image">
+                            <img src="assets/imgs/adicionar.png" alt="Icon"> <!-- Caminho da imagem -->
+                        </button>
+                    </a>
     </th>
                     <th>Transportadora</th>
                     <th>Código</th>
@@ -193,10 +190,11 @@ $result = $mysqli->query($sql);
                         echo "<td>".$user_data['Cidade']."</td>";
                         echo "<td>".$user_data['Estado']."</td>";
                         echo "<td>".$user_data['Rua']."</td>";
-                        echo "<td
-<a class='button-with-image' href='delete.php?id={$user_data['id']}' title='Deletar'>
+                        echo "<td>
+                            <a class='button-with-image' href='delete.php?id={$user_data['id']}' title='Deletar'>
     <img src='assets/imgs/confirma.png' alt='Deletar' width='16' height='16'>
 </a>
+
                         </td>";
                         echo "</tr>";
                     }

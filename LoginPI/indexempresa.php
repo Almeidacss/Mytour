@@ -40,27 +40,35 @@ if (isset($_POST['cnpj']) || isset($_POST['senha'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style2.css">
+    <link rel="stylesheet" href="assets/css/styleempresa.css">
     <title>Projeto Integrador</title>
 </head>
 <body>
 <main id="container">
-    <form id="login_form" action="" method="POST">
-        <!-- FORM HEADER -->
-        <div id="form_header">
+        <form id="login_form" action="" method="POST">
+            <!-- FORM HEADER -->
+            <div id="form_header">
             <img src="assets/imgs/planeta3.png" alt="" />
-            <h1>Mytour</h1>
-            <i id="mode_icon" class="fa-solid fa-moon"></i>
-            <img src="assets/imgs/planeta3.png" alt="" />
-        </div>
-        <div><h3></h3></div>
-
-        <!-- SOCIAL MEDIA LINKS -->
-        <div id="social_media">
-            <a href="indexcarteiro.php"><img src="assets/imgs/carteiro.png" alt=""></a>
-            <a href="index.php"><img src="assets/imgs/usuario1.png" alt="Google logo"></a>
-            <a href="indexempresa.php"><img src="assets/imgs/empresario.png" alt=""></a>
-        </div>
+                <h1>  Mytour</h1>
+                <i id="mode_icon" class="fa-solid fa-moon"></i>
+                <img src="assets/imgs/planeta3.png" alt=""  />
+            </div>
+            <div> <h3></h3></div>
+            <!-- SOCIAL MEDIA LINKS -->
+            <div id="social_media">
+                <!-- Logo 1 -->
+                <a href="indexcarteiro.php">
+                    <img src="assets/imgs/carteiro.png" alt="">
+                </a>
+            <!-- Logo 2 -->
+                <a href="index.php">
+                    <img src="assets/imgs/usuario1.png" alt="Google logo">
+                </a>
+                <!-- GITHUB -->
+                <a href="indexempresa.php">
+                    <img src="assets/imgs/empresario.png" alt="">
+                </a>
+            </div>
 
         <!-- CNPJ -->
         <div class="input-box">
@@ -72,9 +80,8 @@ if (isset($_POST['cnpj']) || isset($_POST['senha'])) {
                 </div>
             </label>
         </div>
-
-        <!-- SENHA -->
-        <div class="input-box">
+       <!-- SENHA -->
+       <div class="input-box">
             <label for="password">
                 Password
                 <div class="input-field">
@@ -82,18 +89,18 @@ if (isset($_POST['cnpj']) || isset($_POST['senha'])) {
                     <input type="password" name="senha" required>
                 </div>
             </label>
-        </div>
-
-        <!-- ESQUECEU A SENHA -->
+        <!-- Fornecedor -->
         <div id="forgot_password">
-            <a href="#">Esqueceu sua senha?</a>
-        </div>
-
-        <!-- BOTÕES -->
+                        <a href="#">
+                            Esqueceu sua senha?
+                        </a>
+                    </div>
         <div class="botão">
+        <p>
             <button id="login_button" type="submit">Entrar</button>
-            <a id="login_button" href="formulario.php">Cadastre-se</a>
-        </div>
+           
+        </p>
+</div>
     </form>
 </main>
 </body>

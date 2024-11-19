@@ -13,7 +13,7 @@ if(!isset($_SESSION)){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mytour - Rastreamento</title>
-    <link rel="stylesheet" href="assets/css/inicial2.css">
+    <link rel="stylesheet" href="assets/css/inicial.css">
     <script src="script.js"></script>
 </head>
 <body>
@@ -51,48 +51,48 @@ if(!isset($_SESSION)){
 </div>
      <!-- Barra de navegação -->
     
-<div class="menuzinho">
+     <div class="menuzinho">
 <div class="navegação">
         <ul>
             <li class="list active">
                 <a href="PIInicial.php">
-                    <span class="icon"><img src="assets/imgs/home.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/hme.png" alt=""></span>
                     <span class="title">Principal</span>
         </a>
         </li>
         <li class="list">
                 <a href="pedidos.php">
-                    <span class="icon"><img src="assets/imgs/pacote.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/pacoteb.png" alt=""></span>
                     <span class="title">Meus pedidos</span>
         </a>
         </li>
         <li class="list">
                 <a href="rastreamento.php">
-                    <span class="icon"><img src="assets/imgs/avião.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/aviãobranco1.png" alt=""></span>
                     <span class="title">Rastreamento</span>
         </a>
         </li>
         <li class="list">
                 <a href="suporte.php">
-                    <span class="icon"><img src="assets/imgs/atendimento.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/atendimentob.png" alt=""></span>
                     <span class="title">Suporte</span>
         </a>
         </li>
         <li class="list">
                 <a href="config.php">
-                    <span class="icon"><img src="assets/imgs/configurações.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/engrenagem.png" alt=""></span>
                     <span class="title">Configurações</span>
         </a>
         </li>
         <li class="list">
                 <a href="dados.php">
-                    <span class="icon"><img src="assets/imgs/prancheta.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/pranchetab.png" alt=""></span>
                     <span class="title">Meus Dados</span>
         </a>
         </li>
         <li class="list">
                 <a href="logout.php">
-                    <span class="icon"><img src="assets/imgs/logout.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/logoutb.png" alt=""></span>
                     <span class="title">Desconetar</span>
         </a>
         </li>

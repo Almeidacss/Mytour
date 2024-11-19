@@ -1,7 +1,7 @@
 <?php
 
-include('protect.php');
-$sql = "SELECT * FROM entregas ORDER BY id DESC";
+include('protectempresa.php');
+$sql = "SELECT * FROM entregadores ORDER BY id DESC";
 $result = $mysqli->query($sql);
 
 ?>
@@ -12,7 +12,7 @@ $result = $mysqli->query($sql);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mytour - Pedidos</title>
-    <link rel="stylesheet" href="assets/css/inicial.css">
+    <link rel="stylesheet" href="assets/css/inicialempresa.css">
     <script src="script.js"></script>
 </head>
 <body>
@@ -50,56 +50,39 @@ $result = $mysqli->query($sql);
 </div>
      <!-- Barra de navegação -->
     
-     <div class="menuzinho">
+<div class="menuzinho">
 <div class="navegação">
         <ul>
             <li class="list active">
-                <a href="PIInicial.php">
-                    <span class="icon"><img src="assets/imgs/hme.png" alt=""></span>
-                    <span class="title">Principal</span>
+                <a href="PIempresa.php">
+                    <span class="icon"><img src="assets/imgs/home.png" alt=""></span>
+                    <span class="title">Pedidos</span>
         </a>
         </li>
         <li class="list">
                 <a href="pedidos.php">
-                    <span class="icon"><img src="assets/imgs/pacoteb.png" alt=""></span>
-                    <span class="title">Meus pedidos</span>
+                    <span class="icon"><img src="assets/imgs/pacote.png" alt=""></span>
+                    <span class="title">Meus entregadores</span>
         </a>
         </li>
         <li class="list">
                 <a href="rastreamento.php">
-                    <span class="icon"><img src="assets/imgs/aviãobranco1.png" alt=""></span>
-                    <span class="title">Rastreamento</span>
-        </a>
-        </li>
-        <li class="list">
-                <a href="suporte.php">
-                    <span class="icon"><img src="assets/imgs/atendimentob.png" alt=""></span>
-                    <span class="title">Suporte</span>
-        </a>
-        </li>
-        <li class="list">
-                <a href="config.php">
-                    <span class="icon"><img src="assets/imgs/engrenagem.png" alt=""></span>
-                    <span class="title">Configurações</span>
-        </a>
-        </li>
-        <li class="list">
-                <a href="dados.php">
-                    <span class="icon"><img src="assets/imgs/pranchetab.png" alt=""></span>
-                    <span class="title">Meus Dados</span>
+                    <span class="icon"><img src="assets/imgs/avião.png" alt=""></span>
+                    <span class="title">Meus dados</span>
         </a>
         </li>
         <li class="list">
                 <a href="logout.php">
-                    <span class="icon"><img src="assets/imgs/logoutb.png" alt=""></span>
+                    <span class="icon"><img src="assets/imgs/logout.png" alt=""></span>
                     <span class="title">Desconetar</span>
         </a>
         </li>
+        
 </div>
 <div class="lista">
     <style>
         .lista {
-            background: black;
+            background: linear-gradient(to right, white, white);
             border-radius: 15px 15px 0 0;
             padding: 20px;
             color: white;
@@ -123,7 +106,7 @@ $result = $mysqli->query($sql);
         }
 
         table thead {
-            background-color: #5807db; /* Cabeçalho da tabela com fundo preto */
+            background-color: #ff0040; /* Cabeçalho da tabela com fundo preto */
             color: #ffffff; /* Texto do cabeçalho em branco */
         }
 
@@ -158,6 +141,20 @@ $result = $mysqli->query($sql);
         .btn-danger {
             background-color: black; /* Cor do botão de exclusão */
         }
+        .button-with-image {
+            background: none; /* Remove a cor de fundo */
+            border: none; /* Remove a borda do botão */
+            padding: 0; /* Remove o padding */
+            cursor: pointer;
+        }
+        .button-with-image img {
+            width: 20px; /* Tamanho da imagem */
+            height: 20px;
+            vertical-align: middle;
+        }
+        .button-with-image:hover img {
+            opacity: 0.8; /* Efeito visual quando passa o mouse na imagem */
+        }
     </style>
 
     <div class="table-container">
@@ -165,17 +162,20 @@ $result = $mysqli->query($sql);
             <thead>
                 <tr>
                 <th>
-                            <img src="assets/imgs/pacoteb.png" alt="Icon"> <!-- Caminho da imagem -->
+                    <!-- Link com o botão -->
+                    <a href="entregadores.php"> <!-- Substitua 'pagina_destino.php' pela URL de destino -->
+                        <button class="button-with-image">
+                            <img src="assets/imgs/adicionar.png" alt="Icon"> <!-- Caminho da imagem -->
+                        </button>
+                    </a>
     </th>
-                    <th>Transportadora</th>
+                    <th>Funcionário</th>
+                    <th>Cargo</th>
+                    <th>Senha</th>
+                    <th>CPF</th>
+                    <th>Veiculo</th>
+                    <th>Localidade</th>
                     <th>Código</th>
-                    <th>Usuário</th>
-                    <th>Telefone</th>
-                    <th>Lançamento</th>
-                    <th>Rastreamento</th>
-                    <th>Cidade</th>
-                    <th>Estado</th>
-                    <th>Endereço</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -184,19 +184,22 @@ $result = $mysqli->query($sql);
                     while($user_data = mysqli_fetch_assoc($result)) {
                         echo "<tr>";
                         echo "<td>".$user_data['id']."</td>";
-                        echo "<td>".$user_data['Transportadora']."</td>";
+                        echo "<td>".$user_data['NomeMinion']."</td>";
+                        echo "<td>".$user_data['Cargo']."</td>";
+                        echo "<td>".$user_data['senha']."</td>";
+                        echo "<td>".$user_data['cpf']."</td>";
+                        echo "<td>".$user_data['veiculo']."</td>";
+                        echo "<td>".$user_data['Empresa']."</td>";
                         echo "<td>".$user_data['Codigo']."</td>";
-                        echo "<td>".$user_data['Usuário']."</td>";
-                        echo "<td>".$user_data['Telefone']."</td>";
-                        echo "<td>".$user_data['Lancamento']."</td>";
-                        echo "<td>".$user_data['rastreamento']."</td>";
-                        echo "<td>".$user_data['Cidade']."</td>";
-                        echo "<td>".$user_data['Estado']."</td>";
-                        echo "<td>".$user_data['Rua']."</td>";
-                        echo "<td
-<a class='button-with-image' href='delete.php?id={$user_data['id']}' title='Deletar'>
-    <img src='assets/imgs/confirma.png' alt='Deletar' width='16' height='16'>
-</a>
+                        echo "<td>
+                            <a class='btn btn-sm btn-primary' href='entregadores.php?id={$user_data['id']}' title='Editar'>
+                                <img src='assets/imgs/lapis.png' alt='Editar' width='16' height='16'>
+                            </a>
+                            <a class='btn btn-sm btn-danger' href='delete.php?id={$user_data['id']}' title='Deletar'>
+                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
+                                    <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z'/>
+                                </svg>
+                            </a>
                         </td>";
                         echo "</tr>";
                     }

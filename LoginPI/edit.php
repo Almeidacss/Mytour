@@ -1,5 +1,5 @@
 <?php
-include_once('protect.php');
+include_once('protectempresa.php');
 
 if (!empty($_GET['id'])) {
     $id = $_GET['id'];
@@ -55,7 +55,7 @@ if (isset($_POST['update'])) {
     // Executa a consulta e verifica se foi bem-sucedida
     if ($mysqli->query($sqlUpdate) === TRUE) {
         // Redireciona de volta para a página de pedidos após a atualização bem-sucedida
-        header("Location: pedidos.php");
+        header("Location: PIempresa.php");
         exit();
     } else {
         // Caso haja erro na atualização
@@ -75,7 +75,7 @@ if (isset($_POST['update'])) {
         /* Estilo geral da página */
         body {
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #5807db , #5807db);
+            background: linear-gradient(135deg, #ff0040 , #ff0040);
             margin: 0;
             padding: 0;
             display: flex;
@@ -151,7 +151,7 @@ if (isset($_POST['update'])) {
         }
 
         .inputUser:focus {
-            border-color: #5807db; /* Cor da borda roxa ao clicar */
+            border-color: #ff0040; /* Cor da borda roxa ao clicar */
         }
 
         .labelInput {
@@ -175,7 +175,7 @@ if (isset($_POST['update'])) {
         #update {
             width: 100%;
             padding: 15px;
-            background: #5807db; /* Cor do botão ajustada para roxo */
+            background: #ff0040; /* Cor do botão ajustada para roxo */
             border: none;
             border-radius: 10px;
             font-size: 18px;
@@ -216,7 +216,7 @@ if (isset($_POST['update'])) {
 </head>
 <body>
     <div class="box">
-        <a href="pedidos.php"><img src="assets/imgs/voltar.png" alt="Voltar"></a>
+        <a href="PIempresa.php"><img src="assets/imgs/voltar.png" alt="Voltar"></a>
         <div class="title-container">
             <img src="assets/imgs/caixa.png" alt="Ícone Título"> <!-- Imagem ao lado do título -->
             <h2>Encomenda</h2>

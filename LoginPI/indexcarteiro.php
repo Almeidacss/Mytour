@@ -1,35 +1,42 @@
 <?php
+// Iniciar a sessão no início do arquivo
+session_start();
+
+// Conectar ao banco de dados
 include('conexao.php');
 
-if(isset($_POST['email']) || isset($_POST['senha'])) {
+// Verificar se CPF e senha foram enviados
+if(isset($_POST['cpf']) || isset($_POST['senha'])) {
 
-    if(strlen($_POST['email']) == 0) {
-        echo "Onde ta o gmail?";
+    // Validar se CPF e senha não estão vazios
+    if(strlen($_POST['cpf']) == 0) {
+        echo "Cadê o CPF?";
     } else if(strlen($_POST['senha']) == 0) {
         echo "Vai logar sem senha?";
     } else {
 
-        $email = $mysqli->real_escape_string($_POST['email']);
+        // Escapar os dados recebidos do formulário para evitar injeção SQL
+        $cpf = $mysqli->real_escape_string($_POST['cpf']);
         $senha = $mysqli->real_escape_string($_POST['senha']);
 
-        $sql_code = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
-        $sql_query = $mysqli->query($sql_code) or die("Péssimo programador " . $mysqli->error);
+        // Consultar o banco de dados para verificar se o CPF e a senha correspondem
+        $sql_code = "SELECT * FROM entregadores WHERE cpf = '$cpf' AND senha = '$senha'";
+        $sql_query = $mysqli->query($sql_code) or die("Erro na execução: " . $mysqli->error);
 
+        // Verificar se o usuário foi encontrado
         $quantidade = $sql_query->num_rows;
 
         if($quantidade == 1) {
             
             $usuario = $sql_query->fetch_assoc();
 
-            if(!isset($_SESSION)) {
-                session_start();
-            }
-
+            // Armazenar dados do usuário na sessão
             $_SESSION['id'] = $usuario['id'];
-            $_SESSION['nome'] = $usuario['nome'];
+            $_SESSION['nome'] = $usuario['NomeMinion'];
 
-            header("Location: PIInicial.php");
-
+            // Redirecionar para a página PIcarteiro.php
+            header("Location: PIcarteiro.php");
+            exit(); // Certifique-se de usar exit após o header para evitar execução adicional
         } else {
             echo "Usuário Inválido.";
         }
@@ -44,8 +51,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style2.css">
-    
+    <link rel="stylesheet" href="assets/css/stylecarteiro1.css">
     <title>Projeto Integrador</title>
 </head>
 <body>
@@ -53,59 +59,54 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
         <form id="login_form" action="" method="POST">
             <!-- FORM HEADER -->
             <div id="form_header">
-            <img src="assets/imgs/planeta3.png" alt="" />
+                <img src="assets/imgs/planeta3.png" alt="" />
                 <h1>  Mytour</h1>
                 <i id="mode_icon" class="fa-solid fa-moon"></i>
                 <img src="assets/imgs/planeta3.png" alt=""  />
             </div>
             <div> <h3></h3></div>
+
             <!-- SOCIAL MEDIA LINKS -->
             <div id="social_media">
-                <!-- Logo 1 -->
                 <a href="indexcarteiro.php">
                     <img src="assets/imgs/carteiro.png" alt="">
                 </a>
-            <!-- Logo 2 -->
                 <a href="index.php">
                     <img src="assets/imgs/usuario1.png" alt="Google logo">
                 </a>
-                <!-- GITHUB -->
                 <a href="indexempresa.php">
                     <img src="assets/imgs/empresario.png" alt="">
                 </a>
             </div>
 
-        <!-- EMAIL -->
+        <!-- CPF -->
         <div class="input-box">
-                    <label for="email">
-                        E-mail
-                        <div class="input-field">
-                        <img src="assets/imgs/envelope.png" alt="">
-                            <input type="text" name="email">
-                        </div>
-                    </label>
+            <label for="cpf">
+                CPF
+                <div class="input-field">
+                    <img src="assets/imgs/envelope.png" alt="">
+                    <input type="text" name="cpf" required>
                 </div>
+            </label>
+        </div>
+
         <!-- PASSWORD -->
         <div class="input-box">
-                    <label for="password">
-                        Password
-                        <div class="input-field">
-                        <img src="assets/imgs/chave.png" alt="">
-                            <input type="password" name="senha">
-                        </div>
-                    </label>
-        <!-- Fornecedor -->
+            <label for="password">
+                Password
+                <div class="input-field">
+                    <img src="assets/imgs/chave.png" alt="">
+                    <input type="password" name="senha" required>
+                </div>
+</label>
+        <!-- Forgot Password -->
         <div id="forgot_password">
-                        <a href="#">
-                            Esqueceu sua senha?
-                        </a>
-                    </div>
+            <a href="#">Esqueceu sua senha?</a>
+        </div>
+
         <div class="botão">
-        <p>
-            <button id="login_button" type="submit">Entrar</button>
-            <a id="login_button" href="formulario.php">Cadastre-se</a>
-        </p>
-</div>
+            <p><button id="login_button" type="submit">Entrar</button></p>
+        </div>
     </form>
 </body>
 </html>
